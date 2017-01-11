@@ -6,7 +6,7 @@
 /*   By: gkambuyl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/28 14:32:36 by gkambuyl          #+#    #+#             */
-/*   Updated: 2016/11/21 11:07:03 by gkambuyl         ###   ########.fr       */
+/*   Updated: 2016/12/08 11:16:17 by gkambuyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdio.h>
 
 void		ft_putchar(char c);
 void		ft_putstr(char *str);

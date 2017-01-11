@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_window.c                                        :+:      :+:    :+:   */
+/*   ft_rmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambuyl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:10:45 by gkambuyl          #+#    #+#             */
-/*   Updated: 2016/12/09 16:26:37 by gkambuyl         ###   ########.fr       */
+/*   Created: 2016/12/15 09:29:36 by gkambuyl          #+#    #+#             */
+/*   Updated: 2016/12/17 11:43:29 by gkambuyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(void)
+void	rmap(t_env *env, int fd, char *line)
 {
-	t_win		*e;
-	int			x;
-	int			y;
+	int		i;
+	char	*buf;
+	char	**table;
 
-	x = 0;
-	y = 0;
-	e->x = 500;
-	e->y = 500;
-	
-	e->ptr = mlx_init();
-	mlx_new_window(e->ptr, e->x, e->y, "Hello World");
-
-
-
-	mlx_loop(e->ptr);;
-	return (0);
+	i = 0;
+	while (get_next_line(fd, &line))
+	{
+		if (i == 0)
+			buf = ft_strjoin(line, "\n");
+		else
+			buf = ft_strjoin(buf, ft_strjoin(line, "\n"));
+		i++;
+	}
+	env->umap = (int **)malloc(sizeof(int *) * i);
+	env->rows = i;
+	table = ft_strsplit(buf, '\n');
+	env = ft_get_number(table, env);
+	free(buf);
+	ft_strdel(table);
+	validate_u_map(env);
 }

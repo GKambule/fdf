@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_window.c                                        :+:      :+:    :+:   */
+/*   validate_u_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambuyl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:10:45 by gkambuyl          #+#    #+#             */
-/*   Updated: 2016/12/09 16:26:37 by gkambuyl         ###   ########.fr       */
+/*   Created: 2016/12/13 12:02:46 by gkambuyl          #+#    #+#             */
+/*   Updated: 2016/12/14 13:37:34 by gkambuyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(void)
+void	validate_u_map(t_env *env)
 {
-	t_win		*e;
-	int			x;
-	int			y;
+	int		i;
+	int		j;
 
-	x = 0;
-	y = 0;
-	e->x = 500;
-	e->y = 500;
-	
-	e->ptr = mlx_init();
-	mlx_new_window(e->ptr, e->x, e->y, "Hello World");
-
-
-
-	mlx_loop(e->ptr);;
-	return (0);
+	i = 0;
+	j = 0;
+	while (env->umap[i])
+	{
+		while (env->umap[i][j])
+		{
+			if (!ft_isdigit(env->umap[i][j]))
+				ft_error("Invalid map format");
+			j++;
+		}
+		j = 0;
+		i++;
+	}
 }

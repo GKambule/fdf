@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_window.c                                        :+:      :+:    :+:   */
+/*   ft_var_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambuyl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:10:45 by gkambuyl          #+#    #+#             */
-/*   Updated: 2016/12/09 16:26:37 by gkambuyl         ###   ########.fr       */
+/*   Created: 2016/12/13 09:41:18 by gkambuyl          #+#    #+#             */
+/*   Updated: 2016/12/17 11:14:26 by gkambuyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(void)
+void	ft_var_int(t_env *env, char *str, t_points *pnt )
 {
-	t_win		*e;
-	int			x;
-	int			y;
+	{
+		int		y;
+		int		x;
+		x			=	0;
+		y			=	0;
+		env->file 	= 	str;
+		env->lib 	= 	mlx_init();
+		env->win 	= 	mlx_new_window(env->lib, WIDTH, HEIGHT, env->file);
 
-	x = 0;
-	y = 0;
-	e->x = 500;
-	e->y = 500;
-	
-	e->ptr = mlx_init();
-	mlx_new_window(e->ptr, e->x, e->y, "Hello World");
-
-
-
-	mlx_loop(e->ptr);;
-	return (0);
+	}
 }

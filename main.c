@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_window.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambuyl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 11:10:45 by gkambuyl          #+#    #+#             */
-/*   Updated: 2016/12/09 16:26:37 by gkambuyl         ###   ########.fr       */
+/*   Created: 2016/12/13 09:34:30 by gkambuyl          #+#    #+#             */
+/*   Updated: 2016/12/14 16:22:03 by gkambuyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(void)
+int main(int ac, char **av)
 {
-	t_win		*e;
-	int			x;
-	int			y;
+	t_env	env;
+	char	*tmp;
 
-	x = 0;
-	y = 0;
-	e->x = 500;
-	e->y = 500;
-	
-	e->ptr = mlx_init();
-	mlx_new_window(e->ptr, e->x, e->y, "Hello World");
-
-
-
-	mlx_loop(e->ptr);;
+	tmp = NULL;
+	if (ac == 2)
+	{
+		tmp = av[1];
+		readfile(tmp, &env);
+		ft_var_int(&env, tmp);
+	}
 	return (0);
 }
